@@ -9,8 +9,8 @@ def rmsprop_step(w, g, s, lr=0.001, beta=0.9, eps=1e-8):
     g = np.array(g)
     s = np.array(s)
 
-    s_new = beta * s + (1-beta) * g*g
+    s = beta * s + (1-beta) * g*g
 
-    w_new = w - (lr / (np.sqrt(s_new + eps)) * g)
-    return (w_new, s_new)
+    w = w - (lr / (np.sqrt(s + eps)) * g)
+    return (w, s)
     pass
